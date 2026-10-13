@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جدول توزيع الامتحانات</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{--bg:#eef1ee;--paper:#fff;--ink:#16261e;--line:#1f7a50;--mut:#6b7d73;--red:#d11a2a;--kt:#0b3a27;--ex:#0a4aa8;--exb:#dbe8ff;--bad:#fde8ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a15;--paper:#17261f;--ink:#e8f1ec;--line:#3fae7c;--mut:#93a89c;--bad:#47181d;--kt:#f1f7f3;--ex:#9cc8ff;--exb:#1d3558}}
+:root[data-theme="dark"]{--bg:#0f1a15;--paper:#17261f;--ink:#e8f1ec;--line:#3fae7c;--mut:#93a89c;--bad:#47181d;--kt:#f1f7f3;--ex:#9cc8ff;--exb:#1d3558}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Noto Naskh Arabic",Amiri,serif}
+.ar{font-family:Amiri,"Noto Naskh Arabic",serif;direction:rtl}
+header{position:relative;text-align:center;padding:14px 10px 34px;background:linear-gradient(#0f4d33,#0b3a27);color:#f6ecd0;border-bottom:4px double #d9b45b;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}header .bg,header .mq{position:absolute;left:0;bottom:0;width:100%}header .bg{top:0}header .mq{height:46px}header .in{position:relative}.bis{font-size:26px;color:#e6c46c}
+.hin{background:transparent;border:0;border-bottom:1px dashed transparent;text-align:center;width:100%;font-weight:inherit;font-size:inherit;padding:0}.hin:hover,.hin:focus{border-bottom-color:#d9b45b;outline:0}header h1{margin:0;font-size:26px;font-weight:700}
+header .sub{display:flex;gap:8px;justify-content:center;align-items:center;font-size:18px;font-weight:600}
+input{font:inherit;color:inherit}
+#examName{color:#f6ecd0;border:0;border-bottom:1px dashed #d9b45b;background:transparent;text-align:center;width:260px;font-weight:600}
+.bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:8px}
+button{font:inherit;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:6px 14px;border-radius:6px;cursor:pointer}
+button.pri{background:var(--line);color:#fff}
+#msg{min-height:24px;text-align:center;color:var(--red);font-weight:600}
+main{direction:ltr;display:flex;gap:12px;padding:8px 12px 24px;align-items:flex-start}
+.pg{background:var(--paper);border:2px solid var(--line);outline:1px solid #b8893a;outline-offset:-5px;border-radius:4px;padding:8px;overflow:auto;max-height:78vh}
+#left{flex:0 0 42%}#right{flex:1 1 58%}
+.pg h2{margin:0 0 6px;font-size:15px;color:var(--mut);font-weight:600;text-align:center}
+table{border-collapse:collapse;width:100%;direction:rtl}#right table{table-layout:fixed;width:auto}th,td{position:relative}#left table{table-layout:fixed;width:auto}.ch{position:absolute;left:0;top:0;bottom:0;width:7px;cursor:col-resize;z-index:2}.rh{position:absolute;left:0;right:0;bottom:0;height:7px;cursor:row-resize;z-index:2}.tb{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:6px}.tb button{padding:1px 9px;font-size:14px}select{font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:5px;max-width:220px}.ch:hover,.rh:hover{background:#b8893a}
+th,td{border:1.5px solid var(--line);padding:2px 3px;vertical-align:top;text-align:center}
+th{background:color-mix(in srgb,var(--line) 12%,var(--paper));font-weight:600}
+td input{width:100%;border:0;background:transparent;text-align:center;padding:3px 2px;outline-offset:-1px;font-size:16px}
+#left td input.ar,#right td input.ar{font-size:18px}
+#right td{overflow:hidden}
+#right th input{font-weight:600}
+.chips{display:flex;flex-direction:column;gap:2px;padding-top:2px}
+.chip{font-size:15px;font-weight:700;color:var(--ex);background:var(--exb);border-radius:3px;padding:0 5px;cursor:default}#right td input.ar{font-weight:700;font-size:19px;color:var(--kt)}
+.chip.hl{background:var(--red);color:#fff;font-weight:700}
+#left tr.hl td:nth-child(2){background:var(--red);color:#fff}
+#left tr.hl td:nth-child(2) input{color:#fff;font-weight:700}
+td.bad{background:var(--bad)}td.bad input{color:var(--red);font-weight:700}
+dialog{border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);padding:18px;max-width:92vw}
+dialog label{display:flex;justify-content:space-between;gap:16px;margin:8px 0;align-items:center}
+dialog input{width:90px;padding:4px;border:1px solid var(--line);border-radius:4px;background:transparent}
+@media (max-width:900px){main{flex-direction:column}#left,#right{flex:1 1 auto;width:100%}.pg{max-height:none}}
+@page land{size:A4 landscape;margin:8mm}@page port{size:A4 portrait;margin:10mm}
+#pa{display:none;direction:rtl;font-family:"Noto Naskh Arabic",Amiri,serif;color:#000}
+.sh{border:2px double #1f7a50;padding:4mm}.s1{page:land;break-after:page}.s2{page:port}
+.ph{text-align:center;margin-bottom:3mm}.bs{font-size:15pt;color:#8a6414;font-family:Amiri,serif}.un{font-size:19pt;font-weight:700;color:#0b3a27}.tt{font-size:13pt;font-weight:600;border-top:1px solid #b8893a;display:inline-block;padding-top:1mm;margin-top:1mm}
+#pa table{width:100%;border-collapse:collapse;table-layout:fixed}
+#pa th,#pa td{border:1.2px solid #1f7a50;text-align:center;vertical-align:middle;padding:1mm 1.5mm;overflow-wrap:break-word}
+#pa th{background:#d9ebe0!important;font-weight:700}#pa tr{break-inside:avoid}
+.s1 table{height:146mm}.s2 table{height:auto}.s2 td,.s2 th{padding:.3mm 1.2mm;line-height:1.05}.s2 .ph{margin-bottom:2mm}body.o1 .s2,body.o2 .s1{display:none!important}body.o1 .s1,body.o2 .s2{break-after:auto}.k{font-weight:700;color:#0b3a27;font-size:1.1em;line-height:1.35}.e{font-weight:600;color:#0a4aa8;font-size:.85em;line-height:1.35}
+@media print{html,body{background:#fff!important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}header,.bar,#msg,main,dialog{display:none!important}#pa{display:block}}
+</style></head><body>
+<header><svg class="bg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="p" width="44" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#d9b45b" stroke-width="1" opacity=".35"><rect x="11" y="11" width="22" height="22"/><rect x="11" y="11" width="22" height="22" transform="rotate(45 22 22)"/><circle cx="22" cy="22" r="4"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+<svg class="mq" viewBox="0 0 600 100" preserveAspectRatio="xMidYMax meet"><path fill="#0b3a27" d="M0 100V88H90V40l8-14 8 14v48H180Q200 60 220 88H250V70Q300 0 350 70V88H380Q400 60 420 88H494V40l8-14 8 14v48H600V100Z"/><path d="M300 2v16M295 9h10M98 26v-9M502 26v-9" stroke="#d9b45b" stroke-width="2"/><circle cx="300" cy="3" r="3" fill="#d9b45b"/></svg>
+<div class="in"><div class="bis ar"><input class="hin" id="hBis"></div><h1><input class="hin" id="hUni"></h1>
+<div class="sub">۞ <input class="hin" id="hTit" style="width:230px"> ۞ <input id="examName" placeholder="مثال: الامتحان النصفي ١٤٤٨هـ"></div></div></header>
+<div class="bar"><select id="pSel"></select><button class="pri" id="newBtn">مشروع جديد</button><button id="dupBtn">نسخ المشروع</button><button id="delBtn">حذف المشروع</button><button id="bkBtn">نسخ احتياطي للبيانات</button><button id="expBtn">حفظ نسخة HTML بالبيانات</button><button id="pdfBtn" data-o="1">PDF — الجدول (أفقي)</button><button id="pdfBtn2" data-o="2">PDF — قائمة الأساتذة (عمودي)</button><button id="cardBtn">بطاقات الأساتذة (Word)</button><button id="dayBtn">أساتذة كل يوم (Word)</button><button id="wordBtn">تنزيل Word</button><button id="xlsBtn">تنزيل Excel</button><button id="clrBtn">مسح الكل</button></div>
+<div id="msg"></div>
+<main><section class="pg" id="left"></section><section class="pg" id="right"></section></main>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><dialog id="dlg2"><b>نسخة HTML تحتوي بياناتك</b><p style="max-width:520px;margin:6px 0">إذا لم يبدأ التنزيل تلقائيًا: اضغط «نسخ الكود»، ثم الصقه في برنامج Notepad واحفظه باسم <span dir="ltr">pariksha.html</span>، وافتحه في Chrome.</p><textarea id="ta" readonly rows="7" dir="ltr" style="width:min(80vw,560px);font:12px monospace"></textarea><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button id="cp" class="pri">نسخ الكود</button><button id="cl">إغلاق</button></div></dialog><dialog id="dlg3"><b>البيانات (نسخ احتياطي / استيراد)</b><p style="max-width:520px;margin:6px 0">للحفظ: اضغط «نسخ» ثم الصق النص في مكان آمن (أو أرسله لي). للاستعادة: الصق النص المحفوظ هنا ثم اضغط «استيراد».</p><textarea id="ta3" rows="8" dir="ltr" style="width:min(80vw,560px);font:12px monospace"></textarea><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button id="cp3" class="pri">نسخ</button><button id="im3">استيراد</button><button id="cl3">إغلاق</button></div></dialog><dialog id="dlg4"><b>بطاقة الممتحن — النصوص</b><div style="min-width:min(88vw,520px)">
+<label style="display:block">الملاحظة ١<input id="c1" style="width:100%"></label><label style="display:block">الملاحظة ٢<input id="c2" style="width:100%"></label><label style="display:block">الملاحظة ٣<input id="c3" style="width:100%"></label><label style="display:block">التاريخ<input id="c4" style="width:100%"></label>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button id="c0">إلغاء</button><button class="pri" id="cgo">تنزيل البطاقات</button></div></div></dialog><div id="pa"></div><datalist id="kl"></datalist>
+<dialog id="dlg"><form method="dialog" id="frm" style="min-width:290px"><b>مشروع جديد</b>
+<label>عدد أيام الامتحان (الصفوف)<input type="number" id="fR" min="1" max="15" value="7"></label>
+<label>عدد الصفوف الدراسية (الأعمدة)<input type="number" id="fC" min="1" max="30" value="12"></label>
+<label>عدد الأساتذة (الصفوف)<input type="number" id="fU" min="1" max="100" value="34"></label>
+<label>أعمدة الكتب بجانب كل أستاذ<input type="number" id="fK" min="1" max="10" value="4"></label>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button type="button" id="fCancel">إلغاء</button><button class="pri" value="ok">إنشاء</button></div></form></dialog>
+<script>
+const $=id=>document.getElementById(id),KEY="pariksha-bontan-v3";
+const ORD=["الأول","الثاني","الثالث","الرابع","الخامس","السادس","السابع","الثامن","التاسع","العاشر","الحادي عشر","الثاني عشر"];
+let S=null,asg=[],timer;
+const sh=n=>{const o=String(n||"");let t=o.replace(/سلمه الله تعالى|المحترم|المؤقر/g,"").replace(/(^|\s)(ألاستاذ|الاستاذ|الأستاذ|مولانا|جناب|ماستر)(?=\s|$)/g,"$1").replace(/^\s*ماستر/,"").replace(/\s+/g," ").trim();return t||o.trim()};
+const an=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const norm=s=>(s||"").replace(/[\u064B-\u065F\u0670]/g,"").replace(/[يی]/g,"ي").replace(/[كک]/g,"ك").replace(/[أإآ]/g,"ا").replace(/\s+/g," ").trim();
+const DAY=["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"];
+const mk=(R,C,U,K)=>({name:"",R,C,U,K,cw:Array(C).fill(110),rh:Array(R).fill(80),hw:100,jam:Array.from({length:C},(_,i)=>"الصف "+(ORD[i]||an(i+1))),days:Array.from({length:R},(_,i)=>DAY[i%7]),g:Array.from({length:R},()=>Array(C).fill("")),u:Array.from({length:U},()=>({n:"",k:Array(K).fill("")}))});
+let DB={cur:null,ps:{}};
+function save(){try{if(DB.cur)DB.ps[DB.cur]=S;localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
+function sel(){$("pSel").innerHTML=Object.entries(DB.ps).map(([id,p],i)=>'<option value="'+id+'"'+(id===DB.cur?" selected":"")+'>'+esc(p.name||"مشروع "+an(i+1))+'</option>').join("")}
+function mod(a){const L=S.days.length,C=S.jam.length,has=x=>x.some(v=>String(v).trim());
+ if(a==="ad"){S.days.push("");S.g.push(Array(C).fill(""));S.rh.push(80)}
+ else if(a==="rd"){if(L<2)return;if(has(S.g[L-1])&&!confirm("اليوم الأخير فيه بيانات. هل تريد حذفه؟"))return;S.days.pop();S.g.pop();S.rh.pop()}
+ else if(a==="aj"){S.jam.push("");S.g.forEach(r=>r.push(""));S.cw.push(110)}
+ else if(a==="rj"){if(C<2)return;if(has(S.g.map(r=>r[C-1]))&&!confirm("العمود الأخير فيه بيانات. هل تريد حذفه؟"))return;S.jam.pop();S.g.forEach(r=>r.pop());S.cw.pop()}
+ else if(a==="au"){S.u.push({n:"",k:Array(S.K).fill("")});S.lrh.push(34)}
+ else if(a==="ru"){const u=S.u[S.u.length-1];if(S.u.length<2)return;if((u.n||has(u.k))&&!confirm("الأستاذ الأخير فيه بيانات. هل تريد حذفه؟"))return;S.u.pop();S.lrh.pop()}
+ else if(a==="ak"){S.K++;S.u.forEach(u=>u.k.push(""));S.lw.push(110)}
+ else if(a==="rk"){if(S.K<2)return;if(has(S.u.map(u=>u.k[S.K-1]))&&!confirm("عمود الكتب الأخير فيه بيانات. هل تريد حذفه؟"))return;S.K--;S.u.forEach(u=>u.k.pop());S.lw.pop()}
+ build();save()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(b&&S)mod(b.dataset.act)});
+function say(t){$("msg").textContent=t;clearTimeout(timer);if(t)timer=setTimeout(()=>say(""),6000)}
+function build(){
+ $("examName").value=S.name;sel();S.hdr=Object.assign({bis:"بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",uni:"الجامعة القرآنية العربية، لال باغ، داكا",tit:"جدول توزيع الامتحانات"},S.hdr||{});$("hBis").value=S.hdr.bis;$("hUni").value=S.hdr.uni;$("hTit").value=S.hdr.tit;
+ S.lw=S.lw||[40,150,...Array(S.K).fill(110)];S.lrh=S.lrh||Array(S.U).fill(34);
+ let h='<h2>قائمة الأساتذة</h2><div class="tb"><button data-act="au">+ أستاذ</button><button data-act="ru">− أستاذ</button><button data-act="ak">+ عمود كتاب</button><button data-act="rk">− عمود كتاب</button></div><table><colgroup>'+S.lw.map(w=>'<col style="width:'+w+'px">').join("")+'</colgroup><tr>'+["م","الاسم",...Array.from({length:S.K},(_,j)=>"الكتاب "+an(j+1))].map((t,i)=>'<th>'+t+'<div class="ch" data-t="l" data-ci="'+i+'"></div></th>').join("")+'</tr>';
+ S.u.forEach((u,i)=>{h+='<tr data-u="'+i+'" style="height:'+S.lrh[i]+'px"><td>'+an(i+1)+'<div class="rh" data-t="l" data-ri="'+i+'"></div></td><td><input data-un="'+i+'" value="'+esc(u.n)+'" placeholder="اسم الأستاذ"></td>';
+  u.k.forEach((k,j)=>h+='<td data-c="'+i+'-'+j+'"><input class="ar" list="kl" data-uk="'+i+'-'+j+'" value="'+esc(k)+'"></td>');h+='</tr>'});
+ $("left").innerHTML=h+'</table>';
+ h='<h2>جدول توزيع الامتحانات</h2><div class="tb"><button data-act="ad">+ يوم</button><button data-act="rd">− يوم</button><button data-act="aj">+ صف دراسي</button><button data-act="rj">− صف دراسي</button></div><table><colgroup><col style="width:'+S.hw+'px">'+S.cw.map(w=>'<col style="width:'+w+'px">').join("")+'</colgroup><tr><th><div class="ch" data-ci="-1"></div></th>';
+ S.jam.forEach((d,c)=>h+='<th><input data-j="'+c+'" value="'+esc(d)+'"><div class="ch" data-ci="'+c+'"></div></th>');h+='</tr>';
+ S.days.forEach((r,i)=>{h+='<tr style="height:'+S.rh[i]+'px"><th><input data-dy="'+i+'" value="'+esc(r)+'"><div class="rh" data-ri="'+i+'"></div></th>';
+  for(let c=0;c<S.jam.length;c++)h+='<td><input class="ar" data-g="'+i+'-'+c+'" value="'+esc(S.g[i][c])+'" placeholder="الكتاب"><div class="chips" id="ch'+i+'-'+c+'"></div></td>';h+='</tr>'});
+ $("right").innerHTML=h+'</table>';fit();refresh()}
+function fit(){const t=document.querySelector("#right table");t.style.width=(S.hw+S.cw.reduce((a,b)=>a+b,0))+"px";document.querySelector("#left table").style.width=S.lw.reduce((a,b)=>a+b,0)+"px"}
+let rz=null;
+document.addEventListener("pointerdown",e=>{const h=e.target.closest(".ch,.rh");if(!h)return;e.preventDefault();const L=h.dataset.t==="l",ci=h.dataset.ci,ri=h.dataset.ri;
+ rz={h,L,ci,ri,x:e.clientX,y:e.clientY,w:ci==="-1"?S.hw:ci!==undefined?(L?S.lw:S.cw)[ci]:0,ht:ri!==undefined?(L?S.lrh:S.rh)[ri]:0};h.setPointerCapture(e.pointerId)});
+document.addEventListener("pointermove",e=>{if(!rz)return;const cols=document.querySelectorAll(rz.L?"#left col":"#right col"),o=rz.L?0:1;
+ if(rz.ci!==undefined){const w=Math.max(40,Math.round(rz.w+(rz.L?e.clientX-rz.x:rz.x-e.clientX)));if(rz.ci==="-1"){S.hw=w;cols[0].style.width=w+"px"}else{(rz.L?S.lw:S.cw)[rz.ci]=w;cols[+rz.ci+o].style.width=w+"px"}fit()}
+ else{const v=Math.max(26,Math.round(rz.ht+e.clientY-rz.y));(rz.L?S.lrh:S.rh)[rz.ri]=v;rz.h.closest("tr").style.height=v+"px"}});
+document.addEventListener("pointerup",()=>{if(rz){rz=null;save()}});
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+function refresh(){
+ const map={};S.g.forEach((row,r)=>row.forEach((v,c)=>{const k=norm(v);if(k)(map[k]=map[k]||[]).push([r,c])}));
+ asg=S.g.map(r=>r.map(()=>[]));let bad=[];
+ S.u.forEach((u,i)=>{const used=new Set();u.k.forEach((k,j)=>{const cells=map[norm(k)];const td=document.querySelector('[data-c="'+i+'-'+j+'"]');if(td)td.classList.remove("bad");if(!cells)return;
+  const cols=cells.map(x=>x[0]);
+  if(new Set(cols).size<cols.length||cols.some(c=>used.has(c))){bad.push([i,j,k]);if(td)td.classList.add("bad");return}
+  cols.forEach(c=>used.add(c));cells.forEach(([r,c])=>asg[r][c].push(i))})});
+ asg.forEach((row,r)=>row.forEach((l,c)=>{const e=$("ch"+r+"-"+c);if(e)e.innerHTML=l.map(i=>'<span class="chip" data-u="'+i+'">'+esc(sh(S.u[i].n)||"الأستاذ "+an(i+1))+'</span>').join("")}));
+ $("kl").innerHTML=[...new Set(S.g.flat().map(v=>v.trim()).filter(Boolean))].map(v=>'<option value="'+esc(v)+'">').join("");
+ return bad}
+function hl(i,on){document.querySelectorAll('.chip[data-u="'+i+'"]').forEach(e=>e.classList.toggle("hl",on));const tr=document.querySelector('#left tr[data-u="'+i+'"]');if(tr)tr.classList.toggle("hl",on)}
+document.addEventListener("mouseover",e=>{const t=e.target.closest("[data-u]");if(t)hl(t.dataset.u,true)});
+document.addEventListener("mouseout",e=>{const t=e.target.closest("[data-u]");if(t)hl(t.dataset.u,false)});
+document.addEventListener("input",e=>{const d=e.target.dataset;if(!S||!d)return;
+ if(e.target.id==="examName"){S.name=e.target.value;sel()}
+ else if(e.target.id==="hBis")S.hdr.bis=e.target.value;else if(e.target.id==="hUni")S.hdr.uni=e.target.value;else if(e.target.id==="hTit")S.hdr.tit=e.target.value;
+ else if(d.un!==undefined)S.u[d.un].n=e.target.value;
+ else if(d.uk){const[i,j]=d.uk.split("-");S.u[i].k[j]=e.target.value}
+ else if(d.g){const[r,c]=d.g.split("-");S.g[r][c]=e.target.value}
+ else if(d.dy!==undefined)S.days[d.dy]=e.target.value;
+ else if(d.j!==undefined)S.jam[d.j]=e.target.value;
+ const bad=refresh();
+ if(d.uk){const[i,j]=d.uk.split("-");const b=bad.find(x=>x[0]==i&&x[1]==j);if(b)say("⚠ "+(S.u[i].n||"الأستاذ "+an(+i+1))+" عنده امتحانان في يوم واحد — لم يُضَف \""+b[2]+"\". اختر كتابًا آخر.");else say("")}
+ else if(bad.length)say("⚠ لبعض الأساتذة امتحانان في يوم واحد (الخانات الحمراء).");
+ save()});
+function open_(){$("dlg").showModal()}
+$("newBtn").onclick=open_;$("fCancel").onclick=()=>$("dlg").close();
+$("frm").addEventListener("submit",()=>{const n=id=>Math.max(1,+$(id).value||1);S=mk(n("fR"),n("fC"),n("fU"),n("fK"));DB.cur="p"+Date.now();DB.ps[DB.cur]=S;build();save()});
+$("expBtn").onclick=()=>{if(!S)return;save();const c=document.documentElement.cloneNode(true);["left","right","pa","msg","pSel"].forEach(id=>c.querySelector("#"+id).innerHTML="");c.querySelectorAll("dialog").forEach(d=>d.removeAttribute("open"));c.querySelectorAll("script[data-embed]").forEach(x=>x.remove());
+ const sc=document.createElement("script");sc.dataset.embed="1";sc.textContent="window.EMBED="+JSON.stringify(DB).replace(/</g,"\\u003c")+";";c.querySelector("meta[charset]").after(sc);
+ const html="<!DOCTYPE html>\n"+c.outerHTML;$("ta").value=html;
+ try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download="pariksha-bontan-"+(S.name||"data").replace(/[^\w\u0600-\u06FF]+/g,"-")+".html";document.body.appendChild(a);a.click();a.remove()}catch(e){}
+ $("dlg2").showModal()};
+$("cp").onclick=()=>{$("ta").select();try{navigator.clipboard.writeText($("ta").value)}catch(e){document.execCommand("copy")}say("تم نسخ الكود.")};
+$("cl").onclick=()=>$("dlg2").close();
+$("bkBtn").onclick=()=>{if(S)save();$("ta3").value=JSON.stringify(DB);$("dlg3").showModal()};
+$("cp3").onclick=()=>{$("ta3").select();try{navigator.clipboard.writeText($("ta3").value)}catch(e){document.execCommand("copy")}say("تم نسخ البيانات.")};
+$("cl3").onclick=()=>$("dlg3").close();
+$("im3").onclick=()=>{try{let d=JSON.parse($("ta3").value.trim());if(d.ps){Object.assign(DB.ps,d.ps);DB.cur=d.cur&&DB.ps[d.cur]?d.cur:Object.keys(DB.ps)[0]}else if(d.jam){DB.cur="p"+Date.now();DB.ps[DB.cur]=d}else throw 0;S=DB.ps[DB.cur];build();save();$("dlg3").close();say("تم استيراد البيانات.")}catch(e){say("⚠ النص غير صالح. الصق النص كاملًا كما نُسخ.")}};
+$("pSel").onchange=e=>{save();DB.cur=e.target.value;S=DB.ps[DB.cur];build()};
+$("dupBtn").onclick=()=>{if(!S)return;save();const c=JSON.parse(JSON.stringify(S));c.name=(S.name||"مشروع")+" (نسخة)";DB.cur="p"+Date.now();DB.ps[DB.cur]=c;S=c;build();save();say("تم نسخ المشروع بالكامل — أنت الآن تعمل على النسخة.")};
+$("delBtn").onclick=()=>{if(!S||!confirm("هل تريد حذف هذا المشروع نهائيًا؟"))return;delete DB.ps[DB.cur];const ids=Object.keys(DB.ps);if(ids.length){DB.cur=ids[0];S=DB.ps[DB.cur];build();save()}else{DB.cur=null;S=null;save();$("left").innerHTML=$("right").innerHTML="";sel();open_()}};
+$("clrBtn").onclick=()=>{if(confirm("هل تريد مسح أسماء الكتب كلها من قائمة الأساتذة؟")){S.u.forEach(u=>u.k=u.k.map(()=>""));build();save()}};
+function pr(){refresh();const KU=Math.max(1,...S.u.map(u=>u.k.reduce((m,k,j)=>String(k).trim()?j+1:m,0))),C=S.jam.length,tot=S.hw+S.cw.reduce((a,b)=>a+b,0),pc=w=>(w/tot*100).toFixed(2)+"%",fs=C>12?9.5:C>9?11:C>6?12.5:14,
+ phf=t=>'<div class="ph"><div class="bs">'+esc(S.hdr.bis)+'</div><div class="un">'+esc(S.hdr.uni)+'</div><div class="tt">۞ '+esc(t)+' ۞ '+esc(S.name)+'</div></div>',ph=phf(S.hdr.tit);
+ let a='<div class="sh s1">'+ph+'<table style="font-size:'+fs+'pt"><colgroup><col style="width:'+pc(S.hw)+'">'+S.cw.map(w=>'<col style="width:'+pc(w)+'">').join("")+'</colgroup><thead><tr><th></th>'+S.jam.map(j=>'<th>'+esc(j)+'</th>').join("")+'</tr></thead><tbody>';
+ S.days.forEach((d,r)=>{a+='<tr><th>'+esc(d)+'</th>'+S.jam.map((_,c)=>'<td><div class="k">'+esc(S.g[r][c])+'</div>'+asg[r][c].map(i=>'<div class="e">'+esc(sh(S.u[i].n)||"الأستاذ "+an(i+1))+'</div>').join("")+'</td>').join("")+'</tr>'});
+ a+='</tbody></table></div><div class="sh s2">'+phf("قائمة الأساتذة")+'<table style="font-size:'+(S.u.length>45?9:S.u.length>38?10:11)+'pt"><colgroup><col style="width:5%"><col style="width:45%">'+S.u[0].k.slice(0,KU).map(()=>'<col>').join("")+'</colgroup><thead><tr><th>م</th><th>الاسم</th>'+S.u[0].k.slice(0,KU).map((_,j)=>'<th>الكتاب '+an(j+1)+'</th>').join("")+'</tr></thead><tbody>';
+ S.u.forEach((u,i)=>{a+='<tr><td>'+an(i+1)+'</td><td><b>'+esc(u.n)+'</b></td>'+u.k.slice(0,KU).map(k=>'<td>'+esc(k)+'</td>').join("")+'</tr>'});
+ $("pa").innerHTML=a+'</tbody></table></div>'}
+addEventListener("beforeprint",()=>{if(S)pr()});
+document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{if(!S)return;pr();if(refresh().length&&!confirm("ما زال هناك تعارض. هل تريد المتابعة إلى PDF؟"))return;document.body.classList.remove("o1","o2");document.body.classList.add("o"+b.dataset.o);try{window.print()}catch(e){say("افتح الصفحة في تبويب جديد ثم اضغط Ctrl+P.")}document.body.classList.remove("o1","o2")});
+function wordHtml(){if(!S)return;refresh();const C=S.jam.length,tot=S.hw+S.cw.reduce((a,b)=>a+b,0),pc=w=>(w/tot*100).toFixed(1)+"%",KU=Math.max(1,...S.u.map(u=>u.k.reduce((m,k,j)=>String(k).trim()?j+1:m,0))),
+ ph=t=>'<p align="center" style="margin:0;font-size:15pt;color:#8a6414">'+esc(S.hdr.bis)+'</p><p align="center" style="margin:0;font-size:20pt;font-weight:bold;color:#0b3a27">'+esc(S.hdr.uni)+'</p><p align="center" style="margin:0 0 6pt;font-size:14pt;font-weight:bold">'+t+' — '+esc(S.name)+'</p>',
+ fs=C>12?9:C>9?10.5:12;
+ let a='<div class="A" dir="rtl">'+ph(S.hdr.tit)+'<table dir="rtl" border="1" cellspacing="0" cellpadding="3" width="100%" style="border-collapse:collapse;font-size:'+fs+'pt"><tr><td width="'+pc(S.hw)+'" bgcolor="#d9ebe0"></td>'+S.jam.map((j,c)=>'<td width="'+pc(S.cw[c])+'" align="center" bgcolor="#d9ebe0"><b>'+esc(j)+'</b></td>').join("")+'</tr>';
+ S.days.forEach((d,r)=>{a+='<tr><td align="center" bgcolor="#d9ebe0"><b>'+esc(d)+'</b></td>'+S.jam.map((_,c)=>'<td align="center" valign="middle"><p style="margin:0;color:#0b3a27"><b>'+esc(S.g[r][c])+'</b></p>'+asg[r][c].map(i=>'<p style="margin:0;color:#0a4aa8;font-size:'+(fs-1.5)+'pt">'+esc(sh(S.u[i].n)||"الأستاذ "+an(i+1))+'</p>').join("")+'</td>').join("")+'</tr>'});
+ a+='</table></div><br clear="all" style="page-break-before:always;mso-break-type:section-break"><div class="B" dir="rtl">'+ph("قائمة الأساتذة")+'<table dir="rtl" border="1" cellspacing="0" cellpadding="2" width="100%" style="border-collapse:collapse;font-size:'+(S.u.length>38?10:11)+'pt"><tr><td width="5%" align="center" bgcolor="#d9ebe0"><b>م</b></td><td width="45%" align="center" bgcolor="#d9ebe0"><b>الاسم</b></td>'+S.u[0].k.slice(0,KU).map((_,j)=>'<td align="center" bgcolor="#d9ebe0"><b>الكتاب '+an(j+1)+'</b></td>').join("")+'</tr>';
+ S.u.forEach((u,i)=>{a+='<tr><td align="center">'+an(i+1)+'</td><td align="center"><b>'+esc(u.n)+'</b></td>'+u.k.slice(0,KU).map(k=>'<td align="center">'+esc(k)+'</td>').join("")+'</tr>'});
+ const html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>جدول توزيع الامتحانات</title><style>@page A{size:841.9pt 595.3pt;mso-page-orientation:landscape;margin:28pt}@page B{size:595.3pt 841.9pt;margin:32pt}div.A{page:A}div.B{page:B}body{font-family:"Sakkal Majalla","Traditional Arabic","Arial",serif}</style></head><body lang="AR-SA">'+a+'</table></div></body></html>';
+ try{const l=document.createElement("a");l.href=URL.createObjectURL(new Blob(["\ufeff"+html],{type:"application/msword"}));l.download="pariksha-bontan.doc";document.body.appendChild(l);l.click();l.remove();say("تم تنزيل ملف Word.")}catch(e){say("تعذّر تنزيل Word — افتح الملف في Chrome مباشرة.")}};
+$("wordBtn").onclick=()=>{if(!S)return;if(!window.docx)return wordHtml();refresh();
+ const{Document,Packer,Paragraph,TextRun,Table,TableRow,TableCell,WidthType,AlignmentType,PageOrientation,ShadingType,VerticalAlign,HeightRule}=docx;
+ const P=(t,o={})=>new Paragraph({alignment:AlignmentType.CENTER,bidirectional:true,spacing:{before:0,after:o.a||0},children:[new TextRun({text:String(t),bold:!!o.b,color:o.c,size:o.s||22,font:"Arial",rightToLeft:true})]});
+ const cell=(ps,w,h)=>new TableCell({width:{size:w,type:WidthType.DXA},verticalAlign:VerticalAlign.CENTER,shading:h?{type:ShadingType.CLEAR,fill:"D9EBE0",color:"auto"}:undefined,margins:{top:40,bottom:40,left:60,right:60},children:ps});
+ const tbl=(ws,rows)=>new Table({width:{size:ws.reduce((a,b)=>a+b,0),type:WidthType.DXA},columnWidths:ws,visuallyRightToLeft:true,rows});
+ const head=t=>[P(S.hdr.bis,{c:"8A6414",s:30}),P(S.hdr.uni,{b:1,c:"0B3A27",s:40}),P(t+(S.name?" — "+S.name:""),{b:1,s:28,a:160})];
+ const C=S.jam.length,tot=S.hw+S.cw.reduce((a,b)=>a+b,0),W1=15700,ws1=[S.hw,...S.cw].map(w=>Math.round(w/tot*W1)),fs=C>12?17:C>9?20:24,rh=Math.max(700,Math.min(1500,Math.round(8800/S.days.length)));
+ const r1=[new TableRow({tableHeader:true,children:[cell([P("")],ws1[0],1),...S.jam.map((j,c)=>cell([P(j,{b:1,s:fs})],ws1[c+1],1))]}),
+  ...S.days.map((d,r)=>new TableRow({height:{value:rh,rule:HeightRule.ATLEAST},cantSplit:true,children:[cell([P(d,{b:1,s:fs+2})],ws1[0],1),...S.jam.map((_,c)=>cell([P(S.g[r][c],{b:1,c:"0B3A27",s:fs}),...asg[r][c].map(i=>P(sh(S.u[i].n)||"الأستاذ "+an(i+1),{c:"0A4AA8",s:fs-1}))],ws1[c+1]))]}))];
+ const KU=Math.max(1,...S.u.map(u=>u.k.reduce((m,k,j)=>String(k).trim()?j+1:m,0))),W2=10200,rest=Math.round((W2*.5)/KU),ws2=[500,W2-500-rest*KU,...Array(KU).fill(rest)],f2=S.u.length>38?20:22;
+ const r2=[new TableRow({tableHeader:true,children:[cell([P("م",{b:1,s:f2})],ws2[0],1),cell([P("الاسم",{b:1,s:f2})],ws2[1],1),...Array.from({length:KU},(_,j)=>cell([P("الكتاب "+an(j+1),{b:1,s:f2})],rest,1))]}),
+  ...S.u.map((u,i)=>new TableRow({cantSplit:true,children:[cell([P(an(i+1),{s:f2})],ws2[0]),cell([P(u.n,{b:1,s:f2})],ws2[1]),...u.k.slice(0,KU).map(k=>cell([P(k,{s:f2})],rest))]}))];
+ const pr_=(o,m)=>({page:{size:{width:11906,height:16838,orientation:o},margin:{top:m,bottom:m,left:m,right:m}}});
+ const doc=new Document({sections:[{properties:pr_(PageOrientation.LANDSCAPE,567),children:[...head(S.hdr.tit),tbl(ws1,r1)]},{properties:pr_(PageOrientation.PORTRAIT,850),children:[...head("قائمة الأساتذة"),tbl(ws2,r2)]}]});
+ Packer.toBlob(doc).then(b=>{const l=document.createElement("a");l.href=URL.createObjectURL(b);l.download="pariksha-bontan.docx";document.body.appendChild(l);l.click();l.remove();say("تم تنزيل ملف Word.")}).catch(()=>wordHtml())};
+const CD={a:"سيبدأ الاختبار كل يوم في الساعة السابعة صباحا وينتهي في الساعة العاشرة",b:"يجب تسليم ورقات الأسئلة إلى مكتب الجامعة في ٤٨/٤/٢٩ هـ",c:"يجب تسليم قائمة الدرجات إلى مكتب الجامعة في ٤٨/٥/٢٠ هـ",d:"٤٨/٤/٢٦ هـ"};
+function dxH(){const{Document,Packer,Paragraph,TextRun,Table,TableRow,TableCell,WidthType,AlignmentType,PageOrientation,ShadingType,VerticalAlign,HeightRule}=docx;
+ const P=(t,o={})=>new Paragraph({alignment:o.al||AlignmentType.CENTER,bidirectional:true,pageBreakBefore:!!o.pb,spacing:{before:o.bf||0,after:o.a||0},children:[new TextRun({text:String(t),bold:!!o.b,color:o.c,size:o.s||22,font:"Arial",rightToLeft:true})]});
+ const cell=(ps,w,o={})=>new TableCell({width:{size:w,type:WidthType.DXA},rowSpan:o.rs,verticalAlign:VerticalAlign.CENTER,shading:o.h?{type:ShadingType.CLEAR,fill:"D9EBE0",color:"auto"}:undefined,margins:{top:50,bottom:50,left:80,right:80},children:Array.isArray(ps)?ps:[ps]});
+ const tbl=(ws,rows)=>new Table({width:{size:ws.reduce((a,b)=>a+b,0),type:WidthType.DXA},columnWidths:ws,visuallyRightToLeft:true,rows});
+ const row=(cs,h)=>new TableRow({cantSplit:true,height:h?{value:h,rule:HeightRule.ATLEAST}:undefined,children:cs});
+ const save=(doc,n)=>Packer.toBlob(doc).then(b=>{const l=document.createElement("a");l.href=URL.createObjectURL(b);l.download=n;document.body.appendChild(l);l.click();l.remove();say("تم تنزيل ملف Word.")});
+ const pg=(o,m)=>({page:{size:{width:11906,height:16838,orientation:o},margin:{top:m,bottom:m,left:m,right:m}}});
+ return{Document,P,cell,tbl,row,save,pg,PageOrientation,AlignmentType,Paragraph,BorderStyle:docx.BorderStyle};}
+const UNI="الجامعة القرآنية العربية، لال باغ، داكا، بنغلاديش";
+function cards(){if(!S||!window.docx)return say("تعذّر تحميل مكتبة Word — تأكد من الاتصال بالإنترنت.");refresh();const c=S.card=Object.assign({},CD,S.card||{});save();
+ const{Document,P,cell,tbl,row,save:sv,pg,PageOrientation,AlignmentType,Paragraph,BorderStyle}=dxH(),ST=AlignmentType.START,ws=[700,1900,5000,3172],rh=Math.max(300,Math.min(420,Math.round(3400/S.days.length))),kids=[];let n=0;
+ S.u.forEach((u,i)=>{const ks=S.days.map((_,r)=>{const k=[];S.jam.forEach((_,j)=>{if(asg[r][j].includes(i))k.push(S.g[r][j].trim())});return k.join("، ")});if(!ks.some(Boolean))return;
+  const k0=n++;
+  if(k0%2===1)kids.push(new Paragraph({spacing:{before:120,after:240},border:{bottom:{style:BorderStyle.DASHED,size:6,color:"888888",space:1}},children:[]}));kids.push(P(S.hdr.uni,{b:1,s:30,c:"0B3A27",pb:k0>0&&k0%2===0,a:40}),P("اسم الممتحن : "+(u.n||"").trim(),{b:1,s:22,al:ST,a:80}),
+   tbl(ws,[row(["الرقم","الأيام","أسماء الكتب المسلّمة","المقادير"].map((t,j)=>cell(P(t,{b:1,s:20}),ws[j],{h:1})),380),...S.days.map((d,r)=>row([cell(P(an(r+1),{s:20}),ws[0]),cell(P(d,{s:20}),ws[1]),cell(P(ks[r],{b:1,s:20,c:"0B3A27"}),ws[2]),cell(P("",{}),ws[3])],rh))]),
+   P("* "+c.a,{al:ST,bf:120,s:18}),P("* "+c.b,{al:ST,s:18}),P("* "+c.c,{al:ST,s:18,a:60}),P("الطالب",{al:ST,s:18,bf:60}),P("من جانب مكتب الجامعة",{al:ST,s:18}),P("التاريخ : "+c.d,{al:ST,s:18}))});
+ if(!kids.length)return say("لا يوجد أستاذ لديه امتحان بعد.");
+ sv(new Document({sections:[{properties:pg(PageOrientation.PORTRAIT,567),children:kids}]}),"pariksha-bataqat-asatidha.docx")}
+function dayList(){if(!S||!window.docx)return say("تعذّر تحميل مكتبة Word — تأكد من الاتصال بالإنترنت.");refresh();const c=Object.assign({},CD,S.card||{});
+ const{Document,P,cell,tbl,row,save:sv,pg,PageOrientation,AlignmentType}=dxH(),ws=[1700,5200,3300],rows=[row(["اليوم","الأستاذ الممتحن","الكتاب"].map((t,j)=>cell(P(t,{b:1,s:24}),ws[j],{h:1})),480)];
+ S.days.forEach((d,r)=>{const m={};S.jam.forEach((_,j)=>asg[r][j].forEach(i=>{(m[i]=m[i]||[]).push(S.g[r][j].trim())}));const L=Object.keys(m).map(Number).sort((a,b)=>a-b);
+  if(!L.length){rows.push(row([cell(P(d,{b:1,s:24}),ws[0]),cell(P("",{}),ws[1]),cell(P("",{}),ws[2])],500));return}
+  L.forEach((i,k)=>{const cs=[];if(k===0)cs.push(cell(P(d,{b:1,s:24}),ws[0],{rs:L.length}));cs.push(cell(P((S.u[i].n||"").trim(),{s:22}),ws[1]),cell(P(m[i].join("، "),{b:1,s:22,c:"0B3A27"}),ws[2]));rows.push(row(cs,380))})});
+ sv(new Document({sections:[{properties:pg(PageOrientation.PORTRAIT,850),children:[P(S.hdr.uni,{b:1,s:36,c:"0B3A27"}),P(S.name||"",{b:1,s:26,a:160}),tbl(ws,rows),P("الملاحظة : "+c.a+".",{b:1,s:22,bf:200,al:AlignmentType.START})]}]}),"pariksha-asatidha-kul-yawm.docx")}
+$("cardBtn").onclick=()=>{if(!S)return;const c=Object.assign({},CD,S.card||{});["a","b","c","d"].forEach((k,i)=>$("c"+(i+1)).value=c[k]);$("dlg4").showModal()};
+$("c0").onclick=()=>$("dlg4").close();
+$("cgo").onclick=()=>{S.card={a:$("c1").value,b:$("c2").value,c:$("c3").value,d:$("c4").value};$("dlg4").close();cards()};
+$("dayBtn").onclick=dayList;
+$("xlsBtn").onclick=()=>{try{refresh();const A=[["",...S.jam]];S.days.forEach((d,r)=>A.push([d,...S.jam.map((_,c)=>[S.g[r][c],...asg[r][c].map(i=>S.u[i].n||"الأستاذ "+an(i+1))].filter(Boolean).join("\n"))]));
+ const B=[["م","الاسم",...S.u[0].k.map((_,j)=>"الكتاب "+an(j+1))],...S.u.map((u,i)=>[an(i+1),u.n,...u.k])];
+ const w=XLSX.utils.book_new(),a=XLSX.utils.aoa_to_sheet(A),b=XLSX.utils.aoa_to_sheet(B);a["!cols"]=[{wch:14},...S.jam.map(()=>({wch:18}))];b["!cols"]=[{wch:5},{wch:28},...S.u[0].k.map(()=>({wch:18}))];
+ XLSX.utils.book_append_sheet(w,a,"جدول التوزيع");XLSX.utils.book_append_sheet(w,b,"قائمة الأساتذة");w.Workbook={Views:[{RTL:true}]};XLSX.writeFile(w,"pariksha-bontan.xlsx")}catch(e){say("تعذّر إنشاء Excel — نزّل الملف وافتحه في متصفحك.")}};
+try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.ps)DB=d;else{const o=JSON.parse(localStorage.getItem("pariksha-bontan-v2"));if(o&&o.jam){DB.cur="p0";DB.ps.p0=o}}}catch(e){}
+if(window.EMBED&&EMBED.ps){for(const[k,v]of Object.entries(EMBED.ps))if(!DB.ps[k])DB.ps[k]=v;if(!DB.cur||!DB.ps[DB.cur])DB.cur=EMBED.cur}
+S=DB.ps[DB.cur]||null;
+if(S&&S.jam)build();else{S=null;sel();open_()}
+</script></body></html>
